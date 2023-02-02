@@ -25,10 +25,11 @@ function buildCard(book) {
 
     card.append(title, author, pages, read);
 
-    title.innerText = book.title;
-    author.innerText = book.author;
-    pages.innerText = book.pages;
-    read.innerText = book.read;
+    title.innerText = `Title: ${book.title}`;
+
+    author.innerText = `Author: ${book.author}`;
+    pages.innerText = `Pages: ${book.pages}`;
+    read.innerText = `Status: ${book.read}`;
 
     container.appendChild(card);
 }
@@ -37,9 +38,9 @@ function libraryCheck() {
     myLibrary.forEach((element) => buildCard(element));
 }
 
-const metamorphoses = new Book('Metamorphoses', 'Ovid', 350, 'not read');
+const metamorphoses = new Book('Metamorphoses', 'Ovid', 350, 'Not yet');
 
-const aeneid = new Book('The Aeneid', 'Virgil', 250, 'not read');
+const aeneid = new Book('The Aeneid', 'Virgil', 250, 'Not yet');
 
 addBookToLibrary(metamorphoses);
 
