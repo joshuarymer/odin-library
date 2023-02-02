@@ -1,3 +1,7 @@
+* {
+    font-family: 'Noto Serif JP', serif;
+}
+
 body {
     display: grid;
     height: 100vh;
