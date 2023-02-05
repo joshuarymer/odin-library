@@ -34,28 +34,21 @@ function buildCard(book) {
     container.appendChild(card);
 }
 
-function libraryCheck() {
-    myLibrary.forEach((element) => buildCard(element));
+function addBook() {
+    const title = document.getElementById('title-text').value;
+    const author = document.getElementById('author-text').value;
+    const pages = document.getElementById('pages-text').value;
+    const read = document.getElementById('read-check');
+
+    const readCheck = () => (read.checked ? 'read' : 'not read');
+
+    const newBook = new Book(title, author, pages, readCheck());
+
+    addBookToLibrary(newBook);
+
+    buildCard(myLibrary[myLibrary.length - 1]);
 }
 
+const addbook = document.getElementById('addbook');
 
-
-function addBook {
-    const addbook = document.getElementById('addbook');
-    const title = document.getElementById('title-text')
-    const author = document.getElementById('author-text');
-    const pages = document.getElementById('pages-text');
-    const option = document.querySelectorAll('input[name="read-option"]');
-
-
-}
-
-const metamorphoses = new Book('Metamorphoses', 'Ovid', 350, 'Not yet');
-
-const aeneid = new Book('The Aeneid', 'Virgil', 250, 'Not yet');
-
-addBookToLibrary(metamorphoses);
-
-addBookToLibrary(aeneid);
-
-libraryCheck();
+addbook.addEventListener('click', () => addBook());

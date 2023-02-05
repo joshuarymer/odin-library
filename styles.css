@@ -56,18 +56,17 @@ input {
 }
 
 .main {
-    display: grid;
+    display: flex;
     justify-content: center;
+    padding: 20px;
     align-items: center;
     background-color: #1B1B3A;
-    box-sizing: border-box;
 }
 
-
-
 .card-container {
-    height: 620px;
-    width: 1080px;
+    min-height: 340px;
+    max-width: 1120px;
+    flex: 1 0 auto;
     border-radius: 15px;
     background-color: #FFF8F0;
     padding: 20px;
