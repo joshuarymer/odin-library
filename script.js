@@ -49,6 +49,11 @@ function addBook() {
 
         buildCard(myLibrary[myLibrary.length - 1]);
     }
+
+    document.getElementById('title-text').value = '';
+    document.getElementById('author-text').value = '';
+    document.getElementById('pages-text').value = '';
+    document.getElementById('read-check').checked = false;
 }
 
 const addbook = document.getElementById('addbook');
