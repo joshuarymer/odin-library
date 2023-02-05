@@ -44,9 +44,11 @@ function addBook() {
 
     const newBook = new Book(title, author, pages, readCheck());
 
-    addBookToLibrary(newBook);
+    if (title !== '' && author !== '' && pages !== '') {
+        addBookToLibrary(newBook);
 
-    buildCard(myLibrary[myLibrary.length - 1]);
+        buildCard(myLibrary[myLibrary.length - 1]);
+    }
 }
 
 const addbook = document.getElementById('addbook');
