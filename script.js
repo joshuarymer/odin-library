@@ -38,6 +38,18 @@ function libraryCheck() {
     myLibrary.forEach((element) => buildCard(element));
 }
 
+
+
+function addBook {
+    const addbook = document.getElementById('addbook');
+    const title = document.getElementById('title-text')
+    const author = document.getElementById('author-text');
+    const pages = document.getElementById('pages-text');
+    const option = document.querySelectorAll('input[name="read-option"]');
+
+
+}
+
 const metamorphoses = new Book('Metamorphoses', 'Ovid', 350, 'Not yet');
 
 const aeneid = new Book('The Aeneid', 'Virgil', 250, 'Not yet');
