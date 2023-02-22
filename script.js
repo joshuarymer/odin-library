@@ -20,13 +20,14 @@ function buildCard(book) {
     const author = document.createElement('div');
     const pages = document.createElement('div');
     const read = document.createElement('div');
-
+    const deleteButton = document.createElement('button');
     card.classList.add('card');
+    deleteButton.classList.add('delete-button');
+    deleteButton.innerHTML = 'Delete';
 
-    card.append(title, author, pages, read);
+    card.append(title, author, pages, read, deleteButton);
 
     title.innerText = `Title: ${book.title}`;
-
     author.innerText = `Author: ${book.author}`;
     pages.innerText = `Pages: ${book.pages}`;
     read.innerText = `Status: ${book.read}`;
