@@ -34,11 +34,18 @@ function buildCard(book) {
     container.appendChild(card);
 }
 
+function displayLibrary() {
+    myLibrary.forEach((element) => {
+        buildCard(element);
+    });
+}
+
 function addBook() {
     const title = document.getElementById('title-text').value;
     const author = document.getElementById('author-text').value;
     const pages = document.getElementById('pages-text').value;
     const read = document.getElementById('read-check');
+    const container = document.getElementById('card-con');
 
     const readCheck = () => (read.checked ? 'read' : 'not read');
 
@@ -46,8 +53,9 @@ function addBook() {
 
     if (title !== '' && author !== '' && pages !== '') {
         addBookToLibrary(newBook);
-
         buildCard(myLibrary[myLibrary.length - 1]);
+        container.innerHTML = '';
+        displayLibrary();
     }
 
     document.getElementById('title-text').value = '';
