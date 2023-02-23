@@ -30,9 +30,13 @@ function buildCard(book) {
     const title = document.createElement('div');
     const author = document.createElement('div');
     const pages = document.createElement('div');
+    const readCon = document.createElement('div');
     const read = document.createElement('div');
+    const check = document.createElement('input');
+    check.setAttribute('type', 'checkbox');
     const deleteButton = document.createElement('button');
     card.classList.add('card');
+    readCon.classList.add('read-con');
     deleteButton.classList.add('delete-button');
     deleteButton.innerHTML = 'Delete';
     deleteButton.addEventListener('click', () => {
@@ -43,12 +47,25 @@ function buildCard(book) {
         });
     });
 
-    card.append(title, author, pages, read, deleteButton);
+    card.append(title, author, pages, readCon, deleteButton);
+    readCon.append(read, check);
 
     title.innerText = `Title: ${book.title}`;
     author.innerText = `Author: ${book.author}`;
     pages.innerText = `Pages: ${book.pages}`;
-    read.innerText = `Status: ${book.read}`;
+    read.innerText = `Read:`;
+    if (book.read === 1) {
+        check.checked = true;
+    }
+
+    check.addEventListener('change', function () {
+        if (this.checked) {
+            myLibrary[card.dataset.index].read = 1;
+        } else {
+            myLibrary[card.dataset.index].read = 0;
+        }
+    });
+
     card.dataset.index = libraryIndex(book);
 
     container.appendChild(card);
@@ -61,7 +78,7 @@ function addBook() {
     const read = document.getElementById('read-check');
     const container = document.getElementById('card-con');
 
-    const readCheck = () => (read.checked ? 'read' : 'not read');
+    const readCheck = () => (read.checked ? 1 : 0);
 
     const newBook = new Book(title, author, pages, readCheck());
 
