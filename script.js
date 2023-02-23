@@ -58,7 +58,7 @@ function buildCard(book) {
         check.checked = true;
     }
 
-    check.addEventListener('change', function () {
+    check.addEventListener('change', () => {
         if (this.checked) {
             myLibrary[card.dataset.index].read = 1;
         } else {
