@@ -35,6 +35,13 @@ function buildCard(book) {
     card.classList.add('card');
     deleteButton.classList.add('delete-button');
     deleteButton.innerHTML = 'Delete';
+    deleteButton.addEventListener('click', () => {
+        myLibrary.splice(card.dataset.index, 1);
+        container.innerHTML = '';
+        myLibrary.forEach((element) => {
+            buildCard(element);
+        });
+    });
 
     card.append(title, author, pages, read, deleteButton);
 
@@ -45,12 +52,6 @@ function buildCard(book) {
     card.dataset.index = libraryIndex(book);
 
     container.appendChild(card);
-}
-
-function displayLibrary() {
-    myLibrary.forEach((element) => {
-        buildCard(element);
-    });
 }
 
 function addBook() {
@@ -68,7 +69,9 @@ function addBook() {
         addBookToLibrary(newBook);
         buildCard(myLibrary[myLibrary.length - 1]);
         container.innerHTML = '';
-        displayLibrary();
+        myLibrary.forEach((element) => {
+            buildCard(element);
+        });
     }
 
     document.getElementById('title-text').value = '';
