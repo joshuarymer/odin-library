@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -11,6 +12,16 @@ function addBookToLibrary(book) {
     if (book.constructor === Book) {
         myLibrary.push(book);
     }
+}
+
+function libraryIndex(book) {
+    let count = 0;
+    for (const el of myLibrary) {
+        if (el.title !== book.title) {
+            count += 1;
+        } else break;
+    }
+    return count;
 }
 
 function buildCard(book) {
@@ -31,6 +42,7 @@ function buildCard(book) {
     author.innerText = `Author: ${book.author}`;
     pages.innerText = `Pages: ${book.pages}`;
     read.innerText = `Status: ${book.read}`;
+    card.dataset.index = libraryIndex(book);
 
     container.appendChild(card);
 }
